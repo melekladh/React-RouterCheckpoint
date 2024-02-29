@@ -1,10 +1,15 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 const MovieCard = (props) => {
+  console.log(props)
 return (
-    <Card style={{ width: '18rem' }}>
+  // Every time I click on a movie card, it will take me to the movie description and trailer page.
+
+  <Link to ={`/movieinfo/${props.movies.title}`} >
+
+  <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src={props.movies.posterURL} />
     <Card.Body>
         <Card.Title> {props.movies.title}</Card.Title>
@@ -17,7 +22,11 @@ return (
           value={props.movies.rating}
         />
     </Card.Body>
+    
     </Card>
+  </Link>
+    
+    
 )
 }
 
